@@ -5,13 +5,14 @@ import {
   Route,
 } from "react-router-dom";
 
-import { ListPage } from './pages';
+import { DetailsPage, ListPage } from './pages';
 
 const App: React.FC = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<ListPage />} />
+        <Route path="/articles/:id" element={<DetailsPage />} />
       </Routes>
     </Router>
   );

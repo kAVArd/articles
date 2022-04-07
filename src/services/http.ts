@@ -2,7 +2,7 @@ import axios from 'axios';
 import { TGenerateOptions, IFormatResponse } from '../types';
 
 const instance = axios.create();
-instance.defaults.baseURL = 'https://www.sicher-im-netz.de/siba-app/siba/';
+instance.defaults.baseURL = 'https://www.sicher-im-netz.de/siba-app/siba';
 instance.defaults.timeout = 180000;
 
 export const httpPost = (url: string, data?: any) =>
@@ -48,14 +48,17 @@ const sendRequest = async ({
 const generateOptions = ({ method, url, data, params }: TGenerateOptions) => {
   const defaultHeaders = {
     // Accept: '*/*',
-    'Content-Type': 'application/json',
+    // 'Content-Type': 'application/json',
+    // 'Access-Control-Allow-Origin': '*',
 
     // 'Cache-Control': 'no-cache',
     // 'Accept-Encoding': 'gzip, deflate, br',
 
     // Accept: 'application/json',
+    // mode: 'cors',
     // 'Accept-Language': 'ru',
-    'Access-Control-Allow-Origin': '*',
+    // 'Access-Control-Allow-Origin': 'http://localhost:3000',
+    // 'Access-Control-Allow-Credentials': true,
   };
 
   return {
@@ -63,8 +66,8 @@ const generateOptions = ({ method, url, data, params }: TGenerateOptions) => {
     url,
     data,
     params,
-    headers: {
-      ...defaultHeaders,
-    },
+    // headers: {
+    //   ...defaultHeaders,
+    // },
   };
 };
